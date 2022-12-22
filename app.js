@@ -25,10 +25,11 @@ app.post("/", (req, res) => {
   const { email, password } = req.body;
   //- operate accountValidator
   const result = accountValidator(email, password);
-  const { invalidMsg, firstName } = result;
-  if (invalidMsg) {
+  if (result.invalidMsg) {
+    const { invalidMsg } = result;
     return res.render("index", { invalidMsg });
   }
+  const { firstName } = result;
   return res.render("profile", { firstName });
 });
 

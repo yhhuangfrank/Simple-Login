@@ -34,8 +34,9 @@ function accountValidator(email, password) {
   //- if cannot find user
   if (!filterUsers.length) {
     invalidMsg += "Email or Password is invalid !";
+    result.invalidMsg = invalidMsg;
+    return result
   }
-  result.invalidMsg = invalidMsg;
   result.firstName = filterUsers[0].firstName;
   return result;
 }
