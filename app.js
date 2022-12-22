@@ -1,6 +1,7 @@
 //- require related module
 const express = require("express");
 const exphbs = require("express-handlebars");
+const accountValidator = require("./accountValidator");
 
 //- parameter setting
 const app = express();
@@ -12,13 +13,24 @@ app.set("view engine", "hbs");
 
 //- set middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 //- set route
 app.get("/", (req, res) => {
   return res.render("index");
 });
 
+app.post("/", (req, res) => {
+  //- check email and password
+  const { email, password } = req.body;
+  //- operate accountValidator
+  const result = accountValidator(email, password);
+  const { invalidMsg, firstName } = result;
+  if (invalidMsg) {
+    return res.render("index", { invalidMsg });
+  }
+  return res.render("profile", { firstName });
+});
 
 //- listen to server
 app.listen(port, () => {

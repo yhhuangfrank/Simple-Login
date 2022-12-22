@@ -3,7 +3,13 @@
     <h1 class="my-3">
       Account Login
     </h1>
-    <form action="/" method="POST" class="needs-validation" id="LoginForm" novalidate>
+    <form
+      action="/"
+      method="POST"
+      class="needs-validation"
+      id="LoginForm"
+      novalidate
+    >
       <div class="mb-3">
         <input
           type="email"
@@ -11,6 +17,7 @@
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="user1@example.com"
+          name="email"
           required
         />
         <div class="valid-feedback">
@@ -25,6 +32,7 @@
           class="form-control"
           id="exampleInputPassword1"
           placeholder="Your password"
+          name="password"
           required
         />
         <div class="valid-feedback">
@@ -33,6 +41,11 @@
           This filed is invaild !
         </div>
       </div>
+      {{#if invalidMsg}}
+        <div class="alert alert-success" role="alert">
+          <code>{{invalidMsg}}</code>
+        </div>
+      {{/if}}
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
