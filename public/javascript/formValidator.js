@@ -1,9 +1,10 @@
 const LoginForm = document.querySelector("#LoginForm");
-
-LoginForm.addEventListener("submit", function onFormSubmitted(e) {
-  if (!LoginForm.checkValidity()) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-  LoginForm.classList.add("was-validated")
-});
+if (LoginForm) {
+  LoginForm.addEventListener("submit", function onFormSubmitted(e) {
+    if (!LoginForm.checkValidity()) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    LoginForm.classList.add("was-validated");
+  });
+}
