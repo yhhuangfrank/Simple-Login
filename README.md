@@ -8,7 +8,7 @@ Simple Login App
 ## Features
 
 - Simple authentication for user's login
-
+- Keep user's login by session 
 
 
 ### Installation
@@ -38,4 +38,5 @@ Server is listening to http://localhost:3000/
 - [Node.js @18.12.1](https://nodejs.org/zh-tw/download/) -Environment
 - [Express @4.18.2](https://www.npmjs.com/package/express) - Web framework
 - [Express-handlebars @6.0.6](https://www.npmjs.com/package/express-handlebars) - Template engine
+- [Express-session @1.17.3](https://www.npmjs.com/package/express-session) - Store session
 - [Bootstrap 5.2](https://getbootstrap.com/)
